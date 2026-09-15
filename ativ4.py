@@ -1,13 +1,25 @@
-idade = int(input("Qual sua idade: "))
-tem_ingresso = input("Você possui ingresso? (sim/nao): ").strip().lower() == "sim"
-
-if idade < 16:
-    mensagem = "Acesso não permitido"
-elif tem_ingresso:
-    mensagem = "Entrada liberada"
+nota = float(input("Digite sua nota final (0 a 10): "))
+frequencia = float(input("Digite sua frequência (%): "))
+resposta = input("Fez a prova de recuperação? (sim/nao): ").strip().lower()
+ 
+fez_recuperacao = resposta == "sim"
+ 
+if frequencia < 75:
+    resultado = "Reprovado por falta"
+elif nota >= 7:
+    resultado = "Aprovado direto"
+elif fez_recuperacao:
+    resultado = "Aprovado na recuperação"
 else:
-    mensagem = "Compre um ingresso"
-
-print(f"\nIdade informada: {idade} anos")
-print(f"Possui ingresso: {'Sim' if tem_ingresso else 'Não'}")
-print(f"Status: {mensagem}")
+    resultado = "Reprovado por nota"
+ 
+print()
+print("Nota final:", nota)
+print("Frequência:", frequencia, "%")
+ 
+if fez_recuperacao:
+    print("Fez recuperação: Sim")
+else:
+    print("Fez recuperação: Não")
+ 
+print("Status:", resultado)
